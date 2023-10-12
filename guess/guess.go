@@ -1,4 +1,4 @@
-package main
+package guess
 
 import (
 	"bufio"
@@ -7,7 +7,7 @@ import (
 	// "strconv"
 )
 
-func main() {
+func Run() {
 	scanner := bufio.NewScanner(os.Stdin)
 
 	low := 1
@@ -17,7 +17,7 @@ func main() {
 	scanner.Scan()
 	// goal, err := strconv.Atoi(scanner.Text())
 	// if err == nil {
-	
+
 	for {
 		guess := (low + high) / 2
 		fmt.Println("Is the number", guess, "?")
@@ -30,12 +30,12 @@ func main() {
 
 		if response == "a" {
 			high = guess - 1
-		}else if response == "b"{
+		} else if response == "b" {
 			low = guess + 1
-		}else if response == "c" {
+		} else if response == "c" {
 			fmt.Println("I am the victor!")
 			break
-		}else{
+		} else {
 			fmt.Println("Invalid response")
 		}
 	}
